@@ -1,0 +1,14 @@
+{
+  "name": "notifyapp",
+  "version": "1.0.0",
+  "description": "A simple electron app that sends out notifications",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Max",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^7.1.4"
+  }
+}
