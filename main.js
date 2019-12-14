@@ -1,18 +1,31 @@
 const { app, Menu, Tray, Notification } = require('electron');
 
+const io = require('socket.io-client');
+
 let tray = null;
 
 
 
 app.on('ready', () => {
-    let myNotification = new Notification({
-        title: 'You received a new notification from Slack',
-        body: 'Hello buddy, this is the notification you received',
-        'icon': 'assets/monkey.png'
-    });
+
     tray = new Tray('assets/monkey.png');
     tray.setToolTip('Max\'s notification app.');
     tray.on('click', () => {
-        myNotification.show();
+
+    });
+
+    const socket = io.connect('http://mmmaxxxnotifyserver.herokuapp.com');
+    socket.on('connect', () => {
+        socket.on('notif', (message) => {
+            console.log('Notification received');
+            let myNotification = new Notification({
+                title: 'Alert!',
+                body: message,
+                'icon': 'assets/monkey.png'
+            });
+            myNotification.show();
+        });
+        console.log('Succesfully connected!');
     })
+
 });

@@ -10,5 +10,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^7.1.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io-client": "^2.3.0"
   }
 }
