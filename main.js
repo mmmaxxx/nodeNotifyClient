@@ -17,10 +17,10 @@ app.on('ready', () => {
     const socket = io.connect('http://mmmaxxxnotifyserver.herokuapp.com');
     socket.on('connect', () => {
         socket.on('notif', (message) => {
-            console.log('Notification received');
+            console.log('Notification received', JSON.stringify(message));
             let myNotification = new Notification({
                 title: 'Alert!',
-                body: message,
+                body: JSON.stringify(message),
                 'icon': 'assets/monkey.png'
             });
             myNotification.show();
