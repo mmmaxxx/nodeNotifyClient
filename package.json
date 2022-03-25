@@ -9,7 +9,7 @@
   "author": "Max",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^7.1.4"
+    "electron": "^13.6.6"
   },
   "dependencies": {
     "express": "^4.17.1",
